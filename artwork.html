@@ -59,7 +59,9 @@
 <script>
   const id = parseInt(new URLSearchParams(location.search).get('id')) || 0;
   const a = ARTWORKS.find(x=>x.id===id) || ARTWORKS[0];
-  document.getElementById('img').src = artSVG(a.id);
+  var imgEl = document.getElementById('img');
+  imgEl.onerror = function(){ this.onerror=null; this.src=PLACEHOLDER; };
+  imgEl.src = imgURL(a.file);
   document.getElementById('img').alt = a.title;
   document.getElementById('cat').textContent = a.cat;
   document.getElementById('title').textContent = a.title;

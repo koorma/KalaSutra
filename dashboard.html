@@ -40,10 +40,10 @@
     <table>
       <thead><tr><th>Work</th><th>Price</th><th>Category</th><th>Status</th></tr></thead>
       <tbody>
-        <tr><td><div class="cell"><img class="thumb" id="t1">Quiet Vessel</div></td><td>₹ 31,000</td><td>Sculpture</td><td><span class="status live">Live</span></td></tr>
-        <tr><td><div class="cell"><img class="thumb" id="t2">Two Stones</div></td><td>₹ 42,000</td><td>Sculpture</td><td><span class="status sold">Sold · ship now</span></td></tr>
-        <tr><td><div class="cell"><img class="thumb" id="t3">Folded Light</div></td><td>₹ 24,000</td><td>Painting</td><td><span class="status live">Live</span></td></tr>
-        <tr><td><div class="cell"><img class="thumb" id="t4">Earth Study No.4</div></td><td>₹ 14,200</td><td>Painting</td><td><span class="status draft">Draft</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t1">Bani Thani</div></td><td>₹ 64,000</td><td>Indian</td><td><span class="status live">Live</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t2">Green Tara</div></td><td>₹ 88,000</td><td>Buddhist</td><td><span class="status sold">Sold · ship now</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t3">Auspicious Cranes</div></td><td>₹ 96,000</td><td>Chinese</td><td><span class="status live">Live</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t4">Uighur Princesses</div></td><td>₹ 1,10,000</td><td>Central Asian</td><td><span class="status draft">Draft</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -75,10 +75,11 @@
 
 <script src="art.js"></script>
 <script>
-  document.getElementById('t1').src=artSVG(2);
-  document.getElementById('t2').src=artSVG(6);
-  document.getElementById('t3').src=artSVG(1);
-  document.getElementById('t4').src=artSVG(3);
+  [[ 't1',0 ],[ 't2',6 ],[ 't3',4 ],[ 't4',9 ]].forEach(function(p){
+    var el=document.getElementById(p[0]);
+    el.onerror=function(){this.onerror=null;this.src=PLACEHOLDER;};
+    el.src=imgURL(ARTWORKS[p[1]].file);
+  });
 </script>
 </body>
 </html>
