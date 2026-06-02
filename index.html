@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KalaSutra — A Marketplace for Original Art</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="banner">Free preview · A handcrafted marketplace connecting artists & collectors</div>
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Kala<span>Sutra</span></a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="artwork.html">Featured</a>
+      <a href="login.html">Artist Login</a>
+    </nav>
+    <a href="login.html" class="btn primary">Sell your art</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Original art · Direct from the artist</div>
+    <h1>Where art finds<br>its home.</h1>
+    <p>KalaSutra is a quiet marketplace for paintings, sculptures and handmade works. Discover one-of-a-kind pieces, and buy directly from the artists who made them.</p>
+    <div class="hero-actions">
+      <a href="gallery.html" class="btn primary">Explore the gallery</a>
+      <a href="login.html" class="btn">List your work</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Curated this week</div>
+      <h2>Featured works</h2>
+      <p>A selection of pieces from independent artists.</p>
+    </div>
+    <div class="grid" id="featured"></div>
+    <div style="text-align:center;margin-top:44px">
+      <a href="gallery.html" class="btn">View all works</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Simple by design</div>
+      <h2>How KalaSutra works</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">01</div><h3>Artists list their work</h3><p>Create an account, upload your piece, write a story, and set your own price.</p></div>
+      <div class="step"><div class="num">02</div><h3>Collectors discover & buy</h3><p>Browse the gallery and purchase directly — no middlemen, no markups.</p></div>
+      <div class="step"><div class="num">03</div><h3>Artists ship it themselves</h3><p>Once an order arrives, the artist packs and delivers the work personally.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand">Kala<span>Sutra</span></div>
+      <div>Original art, direct from the maker.</div>
+    </div>
+    <div>
+      <a href="gallery.html">Gallery</a> &nbsp;·&nbsp;
+      <a href="login.html">Artist Login</a> &nbsp;·&nbsp;
+      <a href="artwork.html">Featured</a>
+    </div>
+    <div>© 2026 KalaSutra · Preview site</div>
+  </div>
+</footer>
+
+<script src="art.js"></script>
+<script>renderCards(document.getElementById('featured'), ARTWORKS.slice(0,3));</script>
+</body>
+</html>

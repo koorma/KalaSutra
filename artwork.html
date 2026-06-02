@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Artwork — KalaSutra</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Kala<span>Sutra</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="artwork.html" class="active">Featured</a>
+      <a href="login.html">Artist Login</a>
+    </nav>
+    <a href="login.html" class="btn primary">Sell your art</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="detail">
+    <img class="art" id="img" alt="">
+    <div class="info">
+      <span class="tag" id="cat"></span>
+      <h1 id="title"></h1>
+      <div class="by" id="artist"></div>
+      <div class="big-price" id="price"></div>
+      <div class="ship">Ships directly from the artist · 5–9 days within India</div>
+      <p class="desc" id="desc"></p>
+      <a href="#" class="btn primary" style="width:100%;text-align:center" onclick="alert('This is a preview — checkout is not active yet.');return false;">Buy this piece</a>
+      <a href="gallery.html" class="btn" style="width:100%;text-align:center;margin-top:12px">Back to gallery</a>
+      <div class="specs">
+        <div><span>Medium</span><span id="medium"></span></div>
+        <div><span>Dimensions</span><span id="size"></span></div>
+        <div><span>Year</span><span id="year"></span></div>
+        <div><span>Authenticity</span><span>Signed certificate included</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" style="padding-top:20px">
+    <div class="section-head"><h2 style="font-size:26px">More from the gallery</h2></div>
+    <div class="grid" id="more"></div>
+  </section>
+</div>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div><div class="brand">Kala<span>Sutra</span></div><div>Original art, direct from the maker.</div></div>
+    <div><a href="gallery.html">Gallery</a> · <a href="login.html">Artist Login</a></div>
+    <div>© 2026 KalaSutra · Preview site</div>
+  </div>
+</footer>
+
+<script src="art.js"></script>
+<script>
+  const id = parseInt(new URLSearchParams(location.search).get('id')) || 0;
+  const a = ARTWORKS.find(x=>x.id===id) || ARTWORKS[0];
+  document.getElementById('img').src = artSVG(a.id);
+  document.getElementById('img').alt = a.title;
+  document.getElementById('cat').textContent = a.cat;
+  document.getElementById('title').textContent = a.title;
+  document.getElementById('artist').textContent = "by " + a.artist;
+  document.getElementById('price').textContent = a.price;
+  document.getElementById('medium').textContent = a.medium;
+  document.getElementById('size').textContent = a.size;
+  document.getElementById('year').textContent = a.year;
+  document.getElementById('desc').textContent = "A considered, one-of-a-kind work by " + a.artist + ". Created with attention to texture, balance and restraint — at home in a calm, light-filled space.";
+  renderCards(document.getElementById('more'), ARTWORKS.filter(x=>x.id!==a.id).slice(0,3));
+</script>
+</body>
+</html>

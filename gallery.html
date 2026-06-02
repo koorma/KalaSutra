@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery — KalaSutra</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Kala<span>Sutra</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="artwork.html">Featured</a>
+      <a href="login.html">Artist Login</a>
+    </nav>
+    <a href="login.html" class="btn primary">Sell your art</a>
+  </div>
+</header>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">The marketplace</div>
+      <h2>Browse original works</h2>
+      <p>Every piece is sold directly by the artist who made it.</p>
+    </div>
+    <div class="filters" id="filters">
+      <button class="chip active" data-cat="All">All</button>
+      <button class="chip" data-cat="Painting">Paintings</button>
+      <button class="chip" data-cat="Sculpture">Sculptures</button>
+      <button class="chip" data-cat="Print">Prints</button>
+    </div>
+    <div class="grid" id="all"></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div><div class="brand">Kala<span>Sutra</span></div><div>Original art, direct from the maker.</div></div>
+    <div><a href="gallery.html">Gallery</a> · <a href="login.html">Artist Login</a> · <a href="artwork.html">Featured</a></div>
+    <div>© 2026 KalaSutra · Preview site</div>
+  </div>
+</footer>
+
+<script src="art.js"></script>
+<script>
+  const grid = document.getElementById('all');
+  function show(cat){ renderCards(grid, cat==='All'?ARTWORKS:ARTWORKS.filter(a=>a.cat===cat)); }
+  show('All');
+  document.querySelectorAll('#filters .chip').forEach(c=>{
+    c.addEventListener('click',()=>{
+      document.querySelectorAll('#filters .chip').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active'); show(c.dataset.cat);
+    });
+  });
+</script>
+</body>
+</html>

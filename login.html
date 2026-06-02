@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Artist Login — KalaSutra</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Kala<span>Sutra</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="artwork.html">Featured</a>
+      <a href="login.html" class="active">Artist Login</a>
+    </nav>
+    <a href="gallery.html" class="btn">Browse art</a>
+  </div>
+</header>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <h1>Welcome back, artist</h1>
+    <div class="sub">Log in to list your work and manage orders.</div>
+    <form onsubmit="location.href='dashboard.html';return false;">
+      <div class="field"><label>Email</label><input type="email" placeholder="you@studio.com" required></div>
+      <div class="field"><label>Password</label><input type="password" placeholder="••••••••" required></div>
+      <button class="btn primary" type="submit">Log in to your studio</button>
+    </form>
+    <div class="auth-foot">New here? <a href="dashboard.html">Create an artist account →</a></div>
+  </div>
+</div>
+
+<script>// preview only — any login goes to the dashboard</script>
+</body>
+</html>

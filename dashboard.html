@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Artist Studio — KalaSutra</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">Kala<span>Sutra</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="dashboard.html" class="active">My Studio</a>
+      <a href="login.html">Log out</a>
+    </nav>
+    <a href="#new" class="btn primary" onclick="document.getElementById('newart').scrollIntoView({behavior:'smooth'});return false;">+ List new work</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="dash-head">
+    <div>
+      <h1>Mira's Studio</h1>
+      <div style="color:var(--muted)">Manage your listings, prices and orders.</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">6</div><div class="l">Active listings</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Sold this month</div></div>
+    <div class="stat"><div class="n">₹ 73,000</div><div class="l">Earnings</div></div>
+    <div class="stat"><div class="n">1</div><div class="l">Order to ship</div></div>
+  </div>
+
+  <h2 style="font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:16px">Your listings</h2>
+  <div class="listings">
+    <table>
+      <thead><tr><th>Work</th><th>Price</th><th>Category</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><div class="cell"><img class="thumb" id="t1">Quiet Vessel</div></td><td>₹ 31,000</td><td>Sculpture</td><td><span class="status live">Live</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t2">Two Stones</div></td><td>₹ 42,000</td><td>Sculpture</td><td><span class="status sold">Sold · ship now</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t3">Folded Light</div></td><td>₹ 24,000</td><td>Painting</td><td><span class="status live">Live</span></td></tr>
+        <tr><td><div class="cell"><img class="thumb" id="t4">Earth Study No.4</div></td><td>₹ 14,200</td><td>Painting</td><td><span class="status draft">Draft</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <section class="section" id="newart">
+    <h2 style="font-family:var(--serif);font-weight:400;font-size:24px;margin-bottom:20px">List a new piece</h2>
+    <div class="auth-card" style="max-width:560px;margin:0">
+      <form onsubmit="alert('Saved! (preview only — listing not actually published)');return false;">
+        <div class="field"><label>Title of the work</label><input placeholder="e.g. Morning Field" required></div>
+        <div class="field"><label>Category</label>
+          <select><option>Painting</option><option>Sculpture</option><option>Print</option></select>
+        </div>
+        <div class="field"><label>Price (₹)</label><input type="number" placeholder="18500" required></div>
+        <div class="field"><label>Medium & dimensions</label><input placeholder="Acrylic on canvas · 60 × 90 cm"></div>
+        <div class="field"><label>Description</label><textarea rows="3" placeholder="Tell collectors about this piece..."></textarea></div>
+        <div class="field"><label>Upload image</label><input type="file"></div>
+        <button class="btn primary" type="submit">Publish listing</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer class="site">
+  <div class="wrap foot-grid">
+    <div><div class="brand">Kala<span>Sutra</span></div><div>Original art, direct from the maker.</div></div>
+    <div>© 2026 KalaSutra · Preview site</div>
+  </div>
+</footer>
+
+<script src="art.js"></script>
+<script>
+  document.getElementById('t1').src=artSVG(2);
+  document.getElementById('t2').src=artSVG(6);
+  document.getElementById('t3').src=artSVG(1);
+  document.getElementById('t4').src=artSVG(3);
+</script>
+</body>
+</html>
